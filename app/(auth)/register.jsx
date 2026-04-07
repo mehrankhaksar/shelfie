@@ -2,6 +2,9 @@ import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
 import {
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
@@ -30,36 +33,47 @@ const Register = () => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ThemedView style={styles.container} safe>
-        <ThemedText isTitle style={styles.title}>
-          Register an Account
-        </ThemedText>
-        <ThemedTextInput
-          style={{ width: "85%" }}
-          placeholder="Email"
-          keyboardType="email-address"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <ThemedTextInput
-          style={{ width: "85%" }}
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-        />
-        <ThemedButton onPress={onSubmit}>
-          <Text style={{ color: "#f2f2f2" }}>Register</Text>
-        </ThemedButton>
-        {error && <Text style={styles.error}>{error}</Text>}
-        <Link href="/login" replace>
-          <ThemedText style={{ textDecorationLine: "underline" }}>
-            Login instead
-          </ThemedText>
-        </Link>
-      </ThemedView>
-    </TouchableWithoutFeedback>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          <ThemedView style={styles.container} safe>
+            <ThemedText isTitle style={styles.title}>
+              Register an Account
+            </ThemedText>
+            <ThemedTextInput
+              style={{ width: "85%" }}
+              placeholder="Email"
+              keyboardType="email-address"
+              value={email}
+              onChangeText={setEmail}
+            />
+            <ThemedTextInput
+              style={{ width: "85%" }}
+              placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+            />
+            <ThemedButton onPress={onSubmit}>
+              <Text style={{ color: "#f2f2f2" }}>Register</Text>
+            </ThemedButton>
+            {error && <Text style={styles.error}>{error}</Text>}
+            <Link href="/login" replace>
+              <ThemedText style={{ textDecorationLine: "underline" }}>
+                Login instead
+              </ThemedText>
+            </Link>
+          </ThemedView>
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
