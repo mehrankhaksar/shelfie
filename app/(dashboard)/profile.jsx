@@ -12,7 +12,7 @@ const Profile = () => {
   return (
     <ThemedView style={styles.container} safe>
       <ThemedCard>
-        <ThemedText style={styles.title} isTitle>
+        <ThemedText style={styles.heading} isHeading>
           {user.email}
         </ThemedText>
         <ThemedText>Time to start reading some books...</ThemedText>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  title: {
+  heading: {
     fontSize: 20,
     fontWeight: "bold",
   },

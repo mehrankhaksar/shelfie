@@ -44,18 +44,16 @@ const Register = () => {
           showsVerticalScrollIndicator={false}
         >
           <ThemedView style={styles.container} safe>
-            <ThemedText isTitle style={styles.title}>
+            <ThemedText isHeading style={styles.title}>
               Register an Account
             </ThemedText>
             <ThemedTextInput
-              style={{ width: "85%" }}
               placeholder="Email"
               keyboardType="email-address"
               value={email}
               onChangeText={setEmail}
             />
             <ThemedTextInput
-              style={{ width: "85%" }}
               placeholder="Password"
               value={password}
               onChangeText={setPassword}

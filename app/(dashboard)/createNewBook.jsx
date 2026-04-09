@@ -46,19 +46,17 @@ const CreateNewBook = () => {
           showsVerticalScrollIndicator={false}
         >
           <ThemedView style={styles.container} safe>
-            <ThemedText isTitle style={styles.title}>
+            <ThemedText isHeading style={styles.title}>
               Add a New Book
             </ThemedText>
 
             <ThemedTextInput
-              style={styles.input}
               placeholder="Book Title"
               value={title}
               onChangeText={setTitle}
             />
 
             <ThemedTextInput
-              style={styles.input}
               placeholder="Book Author"
               value={author}
               onChangeText={setAuthor}
@@ -92,15 +90,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 20,
   },
+
   title: {
     fontWeight: "bold",
     fontSize: 20,
   },
-  input: {
-    width: "85%",
-  },
+
   textarea: {
-    width: "85%",
     minHeight: 150,
     textAlignVertical: "top",
   },

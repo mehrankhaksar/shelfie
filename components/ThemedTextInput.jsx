@@ -15,6 +15,7 @@ const ThemedTextInput = ({ style, ...props }) => {
         styles.base,
         style,
       ]}
+      placeholderTextColor={theme.text.secondary}
       {...props}
     />
   );
@@ -24,6 +25,7 @@ export default ThemedTextInput;
 
 const styles = StyleSheet.create({
   base: {
+    width: "100%",
     padding: 20,
     borderRadius: 6,
   },

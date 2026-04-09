@@ -1,18 +1,31 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import ThemedView from "../components/ThemedView";
 import ThemedLogo from "../components/ThemedLogo";
 import ThemedText from "../components/ThemedText";
 import { Link } from "expo-router";
+import ThemedButton from "../components/ThemedButton";
+import GuestOnly from "../components/auth/GuestOnly";
 
 const Home = () => {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedLogo />
-      <ThemedText style={styles.title}>The Number 1</ThemedText>
-      <ThemedText style={{ fontWeight: "600" }}>Reading List App</ThemedText>
-      <Link href="/login">Login Page</Link>
-      <Link href="/profile">Profile Page</Link>
-    </ThemedView>
+    <GuestOnly>
+      <ThemedView safe>
+        <ThemedView style={styles.container}>
+          <ThemedLogo />
+          <ThemedText style={styles.title}>The Number 1</ThemedText>
+          <ThemedText style={{ fontWeight: "600" }}>
+            Reading List App
+          </ThemedText>
+        </ThemedView>
+        <Link href="/login" asChild>
+          <ThemedButton style={{ width: "100%" }}>
+            <Text style={{ color: "#f2f2f2", textAlign: "center" }}>
+              Login Page
+            </Text>
+          </ThemedButton>
+        </Link>
+      </ThemedView>
+    </GuestOnly>
   );
 };
 

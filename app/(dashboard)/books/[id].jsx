@@ -36,14 +36,16 @@ const BookDetails = () => {
   return (
     <ThemedView safe>
       <ThemedCard style={styles.card}>
-        <ThemedText title={true} style={{ fontSize: 20 }}>
+        <ThemedText title={true} style={styles.title}>
           {book.title}
         </ThemedText>
         <ThemedText style={styles.subTitle}>
           Written by {book.author}
         </ThemedText>
         <ThemedText title={true}>Book description:</ThemedText>
-        <ThemedText>{book.description}</ThemedText>
+        <ThemedText style={{ fontWeight: "500" }}>
+          {book.description}
+        </ThemedText>
         <ThemedButton style={styles.deleteBtn} onPress={onDeleteBook}>
           <Ionicons name="trash" size={20} color="#f2f2f2" />
         </ThemedButton>
@@ -55,6 +57,10 @@ const BookDetails = () => {
 export default BookDetails;
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
   card: {
     position: "relative",
     alignItems: "flex-start",
@@ -62,6 +68,8 @@ const styles = StyleSheet.create({
   subTitle: {
     marginTop: 5,
     marginBottom: 10,
+    fontSize: 12,
+    fontWeight: "600",
   },
   deleteBtn: {
     top: -15,

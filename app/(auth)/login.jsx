@@ -44,18 +44,16 @@ const Login = () => {
           showsVerticalScrollIndicator={false}
         >
           <ThemedView style={styles.container} safe>
-            <ThemedText isTitle style={styles.title}>
+            <ThemedText isHeading style={styles.title}>
               Login to Your Account
             </ThemedText>
             <ThemedTextInput
-              style={{ width: "85%" }}
               placeholder="Email"
               keyboardType="email-address"
               value={email}
               onChangeText={setEmail}
             />
             <ThemedTextInput
-              style={{ width: "85%" }}
               placeholder="Password"
               value={password}
               onChangeText={setPassword}
@@ -86,7 +84,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
   },
   error: {
