@@ -4,8 +4,10 @@ import ThemedText from "../../components/ThemedText";
 import ThemedCard from "../../components/ThemedCard";
 import { useBooks } from "../../hooks/useBooks";
 import { colors } from "../../constants/colors";
+import { useRouter } from "expo-router";
 
 const Books = () => {
+  const router = useRouter();
   const { books } = useBooks();
 
   return (
@@ -18,7 +20,7 @@ const Books = () => {
         keyExtractor={(item) => item.$id}
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
-          <Pressable>
+          <Pressable onPress={() => router.push(`/books/${item.$id}`)}>
             <ThemedCard style={styles.card}>
               <ThemedText style={styles.title} isTitle>
                 {item.title}

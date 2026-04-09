@@ -13,6 +13,21 @@ export default function BooksProvider({ children }) {
 
   const { user } = useUser();
 
+  const getBook = async (id) => {
+    setIsLoading(true);
+    try {
+      const response = await databases.getDocument({
+        databaseId: DB_ID,
+        collectionId: BOOK_COLLECTION_ID,
+        documentId: id,
+      });
+      return response;
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const getBooks = async () => {
     setIsLoading(true);
     try {
@@ -49,6 +64,21 @@ export default function BooksProvider({ children }) {
     }
   };
 
+  const deleteBook = async (id) => {
+    setIsLoading(true);
+    try {
+      await databases.deleteDocument({
+        databaseId: DB_ID,
+        collectionId: BOOK_COLLECTION_ID,
+        documentId: id,
+      });
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
     let unsubscribe;
     const channel = `databases.${DB_ID}.collections.${BOOK_COLLECTION_ID}.documents`;
@@ -57,6 +87,9 @@ export default function BooksProvider({ children }) {
       unsubscribe = client.subscribe(channel, ({ payload, events }) => {
         if (events[0].includes("create")) {
           setBooks((prev) => [...prev, payload]);
+        }
+        if (events[0].includes("delete")) {
+          setBooks((prev) => prev.filter((book) => book.$id !== payload.$id));
         }
       });
     } else {
@@ -69,7 +102,9 @@ export default function BooksProvider({ children }) {
   }, [user]);
 
   return (
-    <BooksContext.Provider value={{ books, isLoading, createNewBook }}>
+    <BooksContext.Provider
+      value={{ books, isLoading, getBook, createNewBook, deleteBook }}
+    >
       {children}
     </BooksContext.Provider>
   );
