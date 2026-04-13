@@ -33,17 +33,17 @@ const Login = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView
-          contentContainerStyle={{ flexGrow: 1 }}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
-          <ThemedView style={styles.container} safe>
+    <ThemedView safe>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <ScrollView
+            contentContainerStyle={styles.container}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
+          >
             <ThemedText isHeading style={styles.title}>
               Login to Your Account
             </ThemedText>
@@ -68,10 +68,10 @@ const Login = () => {
                 Register instead
               </ThemedText>
             </Link>
-          </ThemedView>
-        </ScrollView>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+          </ScrollView>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    </ThemedView>
   );
 };
 
@@ -79,6 +79,7 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     gap: 20,

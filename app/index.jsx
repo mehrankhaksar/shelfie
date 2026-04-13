@@ -18,7 +18,7 @@ const Home = () => {
           </ThemedText>
         </ThemedView>
         <Link href="/login" asChild>
-          <ThemedButton style={{ width: "100%" }}>
+          <ThemedButton style={styles.loginBtn}>
             <Text style={{ color: "#f2f2f2", textAlign: "center" }}>
               Login Page
             </Text>
@@ -38,4 +38,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: { fontSize: 18, fontWeight: "bold", marginTop: 10 },
+  loginBtn: { width: "100%", marginBottom: 20 },
 });
