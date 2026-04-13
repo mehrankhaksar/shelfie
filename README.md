@@ -21,14 +21,27 @@ Custom themed UI components
 /contexts – User & Books providers
 /hooks – Custom hooks (useUser, useBooks)
 /constants – Theme & colors
-▶️ Getting Started
+## ▶️ Getting Started
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the app:
+
+```bash
 npx expo start
-📦 Build
+```
 
-Use Expo EAS for production builds:
+## 📦 Build
 
+Production build:
+
+```bash
 eas build
+```
 🧠 Notes
 Uses protected routes (UserOnly, GuestOnly)
 Tabs only available for authenticated users
