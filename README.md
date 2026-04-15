@@ -1,48 +1,26 @@
-📚 Shelfie
+# 📚 Shelfie
 
-Shelfie is a simple React Native (Expo) reading list app where users can register, log in, and manage their personal book collection.
+A simple React Native (Expo) reading list app for managing personal book collections with authentication and clean mobile UX.
 
-🚀 Features
-🔐 Authentication (Register / Login / Logout)
-📖 Create and manage a personal reading list
-📝 Add books with title, author, and description
-📋 View all saved books in a clean list
-👤 User profile screen
-🧭 Tab-based navigation (Profile / Books / Create)
-🛠 Tech Stack
-React Native (Expo)
-Expo Router (file-based routing)
-Context API (User & Books state management)
-TypeScript/JavaScript (depending on setup)
-Custom themed UI components
-📂 Project Structure
-/app – Routes (auth + dashboard)
-/components – Reusable UI components
-/contexts – User & Books providers
-/hooks – Custom hooks (useUser, useBooks)
-/constants – Theme & colors
-## ▶️ Getting Started
+## 🚀 Features
+- Expo Router (file-based navigation)
+- Authentication (Register / Login / Logout)
+- Personal reading list (add, view, manage books)
+- User profile screen
+- Protected routes (auth/guest handling)
+- Tab-based navigation
+- Keyboard-aware mobile forms
 
-Install dependencies:
+## 🛠 Tech Stack
+- React Native (Expo)
+- Expo Router
+- Context API (state management)
+- TypeScript
+- Custom themed UI components
 
-```bash
-npm install
-```
-
-Start the app:
-
-```bash
-npx expo start
-```
-
-## 📦 Build
-
-Production build:
-
-```bash
-eas build
-```
-🧠 Notes
-Uses protected routes (UserOnly, GuestOnly)
-Tabs only available for authenticated users
-Keyboard-aware forms for better UX on mobile
+## 📂 Project Structure
+- `/app` – Routes (auth + app screens)
+- `/components` – UI components
+- `/contexts` – User & Books state
+- `/hooks` – Custom hooks
+- `/constants` – Theme & config
